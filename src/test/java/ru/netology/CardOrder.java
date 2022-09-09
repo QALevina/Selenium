@@ -1,5 +1,6 @@
 package ru.netology;
 
+import io.github.bonigarcia.wdm.WebDriverManager;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
@@ -17,6 +18,10 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class CardOrder {
     private WebDriver driver;
 
+    @BeforeAll
+    static void setupAll() {
+        WebDriverManager.chromedriver().setup();
+    }
 
     @BeforeAll
     static void setUpAll() {
@@ -52,7 +57,7 @@ public class CardOrder {
 
     // Задание №2 "Проверка валидации"
 
-    /*@Test
+    @Test
     public void invalidName() {
 
         driver.get("http://localhost:9999");
@@ -78,7 +83,7 @@ public class CardOrder {
         List<WebElement> elements = driver.findElements(By.className("input__sub"));
         String errorText = elements.get(1).getText();
         assertEquals("Телефон указан неверно. Должно быть 11 цифр, например, +79012345678.", errorText);
-    }*/
+    }
 
 
 }
