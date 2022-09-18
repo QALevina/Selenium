@@ -55,6 +55,8 @@ public class CardOrder {
     public void invalidName() {
 
         driver.findElement(By.name("name")).sendKeys("Elena Levina");
+        driver.findElement(By.name("phone")).sendKeys("+79175554433");
+        driver.findElement(By.cssSelector("[data-test-id=agreement]")).click();
         driver.findElement(By.className("button__text")).click();
 
         String errorText = driver.findElement(By.cssSelector("[data-test-id='name'].input_invalid .input__sub")).getText();
@@ -65,6 +67,8 @@ public class CardOrder {
     public void invalidNoName() {
 
         driver.findElement(By.name("name")).sendKeys("");
+        driver.findElement(By.name("phone")).sendKeys("+79175554433");
+        driver.findElement(By.cssSelector("[data-test-id=agreement]")).click();
         driver.findElement(By.className("button__text")).click();
 
         String errorText = driver.findElement(By.cssSelector("[data-test-id='name'].input_invalid .input__sub")).getText();
@@ -76,6 +80,7 @@ public class CardOrder {
 
         driver.findElement(By.name("name")).sendKeys("Елена Левина-Иванова");
         driver.findElement(By.name("phone")).sendKeys("+791755544");
+        driver.findElement(By.cssSelector("[data-test-id=agreement]")).click();
         driver.findElement(By.className("button__text")).click();
 
         String errorText = driver.findElement(By.cssSelector("[data-test-id='phone'].input_invalid .input__sub")).getText();
@@ -86,6 +91,7 @@ public class CardOrder {
 
         driver.findElement(By.name("name")).sendKeys("Елена Левина-Иванова");
         driver.findElement(By.name("phone")).sendKeys("");
+        driver.findElement(By.cssSelector("[data-test-id=agreement]")).click();
         driver.findElement(By.className("button__text")).click();
 
         String errorText = driver.findElement(By.cssSelector("[data-test-id='phone'].input_invalid .input__sub")).getText();
